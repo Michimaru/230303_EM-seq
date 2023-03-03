@@ -3,3 +3,4 @@ trim_galore --quality 20 --stringency 3 --length 50 --clip_R1 9 --clip_R2 9 --pa
 
 #Mapping(Bismark_bowti2)
 bismark --bowtie2 --fastq --non_directional --un /Users/musashi/WGBS/mm10 -1 S3_DKDL230001830-1A_HY2LMDSX5_L2_1_val_1.fq.gz -2 S3_DKDL230001830-1A_HY2LMDSX5_L2_2_val_2.fq.gz
+
