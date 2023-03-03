@@ -7,4 +7,8 @@ bismark --bowtie2 --fastq --non_directional --un /Users/musashi/WGBS/mm10 -1 S3_
 #dedupulicate
 deduplicate_bismark --bam --output_dir ./deduplicate <filenames>
 
-#
+#for IGV
+samtoola sort <filename.bam> -o <filename.sort.bam>
+samtools index <filename.sort.bam>
+
+
