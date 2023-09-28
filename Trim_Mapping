@@ -2,13 +2,13 @@
 trim_galore --quality 20 --stringency 3 --length 50 --clip_R1 9 --clip_R2 9 --paired --trim1 --phred33 /Users/musashi/2022年度/data/EM-seq/X207SC23021400-Z01-F001/01.RawData/S3/S3_DKDL230001830-1A_HY2LMDSX5_L2_1.fq.gz /Users/musashi/2022年度/data/EM-seq/X207SC23021400-Z01-F001/01.RawData/S3/S3_DKDL230001830-1A_HY2LMDSX5_L2_2.fq.gz
 
 #Mapping(Bismark_bowti2)
-bismark --bowtie2 --fastq --non_directional --un /Users/musashi/WGBS/mm10 -1 S3_DKDL230001830-1A_HY2LMDSX5_L2_1_val_1.fq.gz -2 S3_DKDL230001830-1A_HY2LMDSX5_L2_2_val_2.fq.gz
+bismark --genome /Volumes/musashi5/mm10 --output_dir /Volumes/musashi5/mapping -1 /Volumes/musashi5/WT_2_1_val_1.fq.gz -2 /Volumes/musashi5/WT_2_2_val_2.fq.gz --multicore 2
 
 #dedupulicate
 deduplicate_bismark --bam --output_dir ./deduplicate <filenames>
 
 #for IGV
-samtoola sort <filename.bam> -o <filename.sort.bam>
+samtools sort <filename.bam> -o <filename.sort.bam>
 samtools index <filename.sort.bam>
 
 
