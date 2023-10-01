@@ -7,6 +7,9 @@ bismark --genome /Volumes/musashi5/mm10 --output_dir /Volumes/musashi5/mapping -
 #dedupulicate
 deduplicate_bismark --bam --output_dir ./deduplicate <filenames>
 
+#count bam to bedGraph #deduplicate後では上手くいかない時がある
+bismark_methylation_extractor -p --bedGraph -counts <filename.bam>
+
 #for IGV
 samtools sort <filename.bam> -o <filename.sort.bam>
 samtools index <filename.sort.bam>
