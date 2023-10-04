@@ -14,4 +14,17 @@ bismark_methylation_extractor -p --bedGraph -counts <filename.bam>
 samtools sort <filename.bam> -o <filename.sort.bam>
 samtools index <filename.sort.bam>
 
+#bedGraph sort
+LC_COLLATE=C sort -k1,1 -k2,2n <filename.bedGraph> > <fileneme_sort.bedGraph>
+
+#bedGraph to BigWig
+bedGraphToBigWig /Volumes/musashi5/mapping/NSD1_2_de_sort_1.bedGraph mm10.chrom.sizes NSD1_2_de.bw
+( sed '38030550d' /Volumes/musashi5/mapping/NSD1_2_de_sort.bedGraph > NSD1_2_de_sort_1.bedGraph)
+
+
+#analysis for TSS
+computeMatrix reference-point -S /Volumes/musashi5/mapping/NSD1_2_de.bw -R /Volumes/musashi5/mapping/gencode.vM33.annotation.gtf.gz -a 3000 -b 3000 -o NSD1_2.bw.mat.gz -p 2
+plotHeatmap -m NSD1_2_de.bw -out NSD1_2_bw.png
+
+
 
