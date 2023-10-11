@@ -24,7 +24,7 @@ bedGraphToBigWig /Volumes/musashi5/mapping/NSD1_2_de_sort_1.bedGraph mm10.chrom.
 
 #analysis for TSS
 computeMatrix reference-point -S /Volumes/musashi5/mapping/NSD1_2_de.bw -R /Volumes/musashi5/mapping/gencode.vM33.annotation.gtf.gz -a 3000 -b 3000 -o NSD1_2.bw.mat.gz -p 2
-plotHeatmap -m NSD1_2_de.bw -out NSD1_2_bw.png
+plotHeatmap -m NSD1_2.bw.mat.gz -out NSD1_2_bw.png
 
 
 
