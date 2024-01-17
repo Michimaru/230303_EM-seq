@@ -26,5 +26,8 @@ bedGraphToBigWig /Volumes/musashi5/mapping/NSD1_2_de_sort_1.bedGraph mm10.chrom.
 computeMatrix reference-point -S /Volumes/musashi5/mapping/NSD1_2_de.bw -R /Volumes/musashi5/mapping/gencode.vM33.annotation.gtf.gz -a 1000 -b 1000 --referencePoint center --missingDataAsZero -o NSD1_2.bw.mat.gz -p 2
 plotHeatmap -m NSD1_2.bw.mat.gz -out NSD1_2_bw.png
 
+#imprinted regions抜き出し
+awk '$1=="chr9" && $2>=89876600 && $3<=89879800' NSD1_3_1_val_1_bismark_bt2_pe.bedGraph > NSD1-3_Rasgrf1_1.bedGraph
+
 
 
