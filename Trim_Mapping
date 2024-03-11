@@ -29,5 +29,17 @@ plotHeatmap -m NSD1_2.bw.mat.gz -out NSD1_2_bw.png
 #imprinted regions抜き出し
 awk '$1=="chr9" && $2>=89876600 && $3<=89879800' NSD1_3_1_val_1_bismark_bt2_pe.bedGraph > NSD1-3_Rasgrf1_1.bedGraph
 
+#biopythonでのC→T変換
+python　#pythonの起動
+from Bio import SeqIO
+def bisulfite_convert(dna_sequence):return dna_sequence.upper().replace('C', 'T')
+Peg3 = "Peg3.fa" #input_fileの定義
+Peg3_con = "Peg3_con.fa" #output_fileの定義
+#適宜内容を変更して
+with open(Peg3_con, "w") as output_handle:
+    for record in SeqIO.parse(Peg3, "fasta"):
+        converted_seq = bisulfite_convert(record.seq)
+        record.seq = converted_seq
+        SeqIO.write(record, Peg3_con, "fasta")
 
 
